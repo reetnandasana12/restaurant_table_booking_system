@@ -5,7 +5,6 @@ import MenuPage from "../MenuPage";
 
 function Home(userDetails) {
 
-//DFDFV
 
 	
 
