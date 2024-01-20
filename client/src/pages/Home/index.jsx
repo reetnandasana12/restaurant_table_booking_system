@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import axios from "axios"
-
+import MenuPage from "../MenuPage";
 
 function Home(userDetails) {
 
@@ -12,7 +12,11 @@ function Home(userDetails) {
 		window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
 	};
 	return (
-		<h1>HOME</h1>
+		<>
+			<h1>HOME</h1>
+		<MenuPage/>
+		</>
+		
 		// <div className={styles.container}>
 		// 	<h1 className={styles.heading}>Home</h1>
 		// 	<div className={styles.form_container}>
