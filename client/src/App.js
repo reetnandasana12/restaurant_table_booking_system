@@ -18,6 +18,7 @@ function App() {
 			console.log(err);
 		}
 	};
+	
 
 	useEffect(() => {
 		getUser();
@@ -26,10 +27,15 @@ function App() {
 	return (
 		<div className="container">
 			<Routes>
+				{/* <Route
+					exact
+					path="/auth/login/success"
+					element={user ? <Home user={user} /> : <Navigate to="/login" />}
+				/> */}
 				<Route
 					exact
 					path="/"
-					element={user ? <Home user={user} /> : <Navigate to="/login" />}
+					element={user ? <Navigate to="/" /> : <Login />}
 				/>
 				<Route
 					exact
@@ -39,6 +45,10 @@ function App() {
 				<Route
 					path="/signup"
 					element={user ? <Navigate to="/" /> : <Signup />}
+				/>
+				<Route
+					path="/home"
+					element={user ? <Navigate to="/" /> : <Home />}
 				/>
 			</Routes>
 		</div>
