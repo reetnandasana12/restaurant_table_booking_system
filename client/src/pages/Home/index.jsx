@@ -5,7 +5,10 @@ import MenuPage from "../MenuPage";
 
 function Home(userDetails) {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f24cc93 (home page)
 	
 
 	const user = userDetails.user;
