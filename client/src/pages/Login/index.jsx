@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import React, { useState, useEffect } from 'react';
@@ -17,10 +18,15 @@ function Login() {
   console.log(hotels.length);
 
 =======
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 function Login() {
+<<<<<<< HEAD
+>>>>>>> parent of 2f42f45 (Delete client directory)
+=======
 >>>>>>> parent of 2f42f45 (Delete client directory)
 	const googleAuth = () => {
 		window.open(
@@ -28,6 +34,7 @@ function Login() {
 			"_self"
 		);
 	};
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -64,6 +71,8 @@ function Login() {
 	}
 =======
 >>>>>>> parent of 2f42f45 (Delete client directory)
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Log in Form</h1>
@@ -73,6 +82,7 @@ function Login() {
 				</div>
 				<div className={styles.right}>
 					<h2 className={styles.from_heading}>Members Log in</h2>
+<<<<<<< HEAD
 <<<<<<< HEAD
 					<input type="email" className={styles.input} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
 					<input type="password" className={styles.input} onChange={(e)=>{setpassword(e.target.value)}} placeholder="Password" />
@@ -85,6 +95,8 @@ function Login() {
 					<p className={styles.text}>
 						New Here ? <Link to="/signup">Sign Up</Link>
 =======
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 					<input type="text" className={styles.input} placeholder="Email" />
 					<input type="text" className={styles.input} placeholder="Password" />
 					<button className={styles.btn}>Log In</button>
@@ -95,6 +107,9 @@ function Login() {
 					</button>
 					<p className={styles.text}>
 						New Here ? <Link to="/signup">Sing Up</Link>
+<<<<<<< HEAD
+>>>>>>> parent of 2f42f45 (Delete client directory)
+=======
 >>>>>>> parent of 2f42f45 (Delete client directory)
 					</p>
 				</div>

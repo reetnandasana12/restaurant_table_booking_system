@@ -19,7 +19,10 @@ function App() {
 		}
 	};
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 =======
 >>>>>>> parent of 2f42f45 (Delete client directory)
 
@@ -31,6 +34,7 @@ function App() {
 		<div className="container">
 			<Routes>
 <<<<<<< HEAD
+<<<<<<< HEAD
 				{/* <Route
 					exact
 					path="/auth/login/success"
@@ -41,10 +45,15 @@ function App() {
 					path="/"
 					element={user ? <Navigate to="/" /> : <Login />}
 =======
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 				<Route
 					exact
 					path="/"
 					element={user ? <Home user={user} /> : <Navigate to="/login" />}
+<<<<<<< HEAD
+>>>>>>> parent of 2f42f45 (Delete client directory)
+=======
 >>>>>>> parent of 2f42f45 (Delete client directory)
 				/>
 				<Route
@@ -57,10 +66,13 @@ function App() {
 					element={user ? <Navigate to="/" /> : <Signup />}
 				/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<Route
 					path="/home"
 					element={user ? <Navigate to="/" /> : <Home />}
 				/>
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 =======
 >>>>>>> parent of 2f42f45 (Delete client directory)
 			</Routes>

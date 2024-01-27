@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import axios from "axios"
@@ -54,6 +55,8 @@ function Home(userDetails) {
 		// 	</div>
 		// </div>
 =======
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 import styles from "./styles.module.css";
 
 function Home(userDetails) {
@@ -93,6 +96,9 @@ function Home(userDetails) {
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
+>>>>>>> parent of 2f42f45 (Delete client directory)
+=======
 >>>>>>> parent of 2f42f45 (Delete client directory)
 	);
 }
