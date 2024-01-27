@@ -18,7 +18,10 @@ function App() {
 			console.log(err);
 		}
 	};
+<<<<<<< HEAD
 	
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 
 	useEffect(() => {
 		getUser();
@@ -27,6 +30,7 @@ function App() {
 	return (
 		<div className="container">
 			<Routes>
+<<<<<<< HEAD
 				{/* <Route
 					exact
 					path="/auth/login/success"
@@ -36,6 +40,12 @@ function App() {
 					exact
 					path="/"
 					element={user ? <Navigate to="/" /> : <Login />}
+=======
+				<Route
+					exact
+					path="/"
+					element={user ? <Home user={user} /> : <Navigate to="/login" />}
+>>>>>>> parent of 2f42f45 (Delete client directory)
 				/>
 				<Route
 					exact
@@ -46,10 +56,13 @@ function App() {
 					path="/signup"
 					element={user ? <Navigate to="/" /> : <Signup />}
 				/>
+<<<<<<< HEAD
 				<Route
 					path="/home"
 					element={user ? <Navigate to="/" /> : <Home />}
 				/>
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 			</Routes>
 		</div>
 	);

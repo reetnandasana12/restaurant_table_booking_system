@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import axios from "axios";
 import { useState } from "react";
 
+=======
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
+>>>>>>> parent of 2f42f45 (Delete client directory)
 
 function Signup() {
 	const googleAuth = () => {
@@ -11,6 +16,7 @@ function Signup() {
 			"_self"
 		);
 	};
+<<<<<<< HEAD
 
 
 	const history = useNavigate();
@@ -43,6 +49,8 @@ function Signup() {
 				console.log(e);
 		}
 	}
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Sign up Form</h1>
@@ -53,6 +61,7 @@ function Signup() {
 				<div className={styles.right}>
 					<h2 className={styles.from_heading}>Create Account</h2>
 					<input type="text" className={styles.input} placeholder="Username" />
+<<<<<<< HEAD
 					<input type="text" className={styles.input} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
 					<input
 						type="passport"
@@ -65,6 +74,19 @@ function Signup() {
 					<button className={styles.google_btn} onClick={googleAuth}>
 						<img src="./images/google.png" alt="google icon" />
 						<span>Sign up with Google</span>
+=======
+					<input type="text" className={styles.input} placeholder="Email" />
+					<input
+						type="password"
+						className={styles.input}
+						placeholder="Password"
+					/>
+					<button className={styles.btn}>Sign Up</button>
+					<p className={styles.text}>or</p>
+					<button className={styles.google_btn} onClick={googleAuth}>
+						<img src="./images/google.png" alt="google icon" />
+						<span>Sing up with Google</span>
+>>>>>>> parent of 2f42f45 (Delete client directory)
 					</button>
 					<p className={styles.text}>
 						Already Have Account ? <Link to="/login">Log In</Link>
@@ -75,4 +97,8 @@ function Signup() {
 	);
 }
 
+<<<<<<< HEAD
 export default Signup;
+=======
+export default Signup;
+>>>>>>> parent of 2f42f45 (Delete client directory)

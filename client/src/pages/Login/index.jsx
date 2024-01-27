@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import React, { useState, useEffect } from 'react';
@@ -15,12 +16,19 @@ function Login() {
 
   console.log(hotels.length);
 
+=======
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
+
+function Login() {
+>>>>>>> parent of 2f42f45 (Delete client directory)
 	const googleAuth = () => {
 		window.open(
 			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
 			"_self"
 		);
 	};
+<<<<<<< HEAD
 
 
 	const history = useNavigate();
@@ -54,6 +62,8 @@ function Login() {
 				console.log(e);
 		}
 	}
+=======
+>>>>>>> parent of 2f42f45 (Delete client directory)
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Log in Form</h1>
@@ -63,6 +73,7 @@ function Login() {
 				</div>
 				<div className={styles.right}>
 					<h2 className={styles.from_heading}>Members Log in</h2>
+<<<<<<< HEAD
 					<input type="email" className={styles.input} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
 					<input type="password" className={styles.input} onChange={(e)=>{setpassword(e.target.value)}} placeholder="Password" />
 					<button type="submit" onClick={submit} className={styles.btn}>Log In</button>
@@ -73,6 +84,18 @@ function Login() {
 					</button>
 					<p className={styles.text}>
 						New Here ? <Link to="/signup">Sign Up</Link>
+=======
+					<input type="text" className={styles.input} placeholder="Email" />
+					<input type="text" className={styles.input} placeholder="Password" />
+					<button className={styles.btn}>Log In</button>
+					<p className={styles.text}>or</p>
+					<button className={styles.google_btn} onClick={googleAuth}>
+						<img src="./images/google.png" alt="google icon" />
+						<span>Sing in with Google</span>
+					</button>
+					<p className={styles.text}>
+						New Here ? <Link to="/signup">Sing Up</Link>
+>>>>>>> parent of 2f42f45 (Delete client directory)
 					</p>
 				</div>
 			</div>
