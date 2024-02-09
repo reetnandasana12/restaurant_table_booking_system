@@ -1,6 +1,6 @@
 // import { message } from 'antd';
 import axios from 'axios';
-
+// import { message } from "antd";
 export const getAllHotels=()=>async dispatch=>{
 
     dispatch({type: 'LOADING' , payload:true})
@@ -13,5 +13,66 @@ export const getAllHotels=()=>async dispatch=>{
         console.log(error)
         dispatch({type: 'LOADING' , payload:false})
     }
+
+}
+
+
+export const addHotel=(reqObj)=>async dispatch=>{
+
+    dispatch({type: 'LOADING' , payload:true})
+
+    try {
+         await axios.post('/api/hotels/addhotel' , reqObj)
+       
+         dispatch({type: 'LOADING' , payload:false})
+        //  message.success('New hotel added successfully');
+         setTimeout(() => {
+            window.location.href='/admin'
+         }, 500);
+    } catch (error) {
+        console.log(error)
+        dispatch({type: 'LOADING' , payload:false})
+    }
+      
+
+}
+
+export const editHotel=(reqObj)=>async dispatch=>{
+
+    dispatch({type: 'LOADING' , payload:true})
+
+    try {
+         await axios.post('/api/hotels/edithotel' , reqObj)
+       
+         dispatch({type: 'LOADING' , payload:false})
+        //  message.success('Hotel details updated successfully');
+         setTimeout(() => {
+            window.location.href='/admin'
+         }, 500);
+    } catch (error) {
+        console.log(error)
+        dispatch({type: 'LOADING' , payload:false})
+    }
+      
+
+}
+
+export const deleteHotel=(reqObj)=>async dispatch=>{
+
+    dispatch({type: 'LOADING' , payload:true})
+
+    try {
+         await axios.post('/api/hotels/deletehotel' , reqObj)
+       
+         dispatch({type: 'LOADING' , payload:false})
+        //  message.success('Hotel deleted successfully');
+         setTimeout(() => {
+            window.location.reload()
+         }, 500);
+    } catch (error) {
+        console.log(error)
+        dispatch({type: 'LOADING' , payload:false})
+    }
+      
 
 }

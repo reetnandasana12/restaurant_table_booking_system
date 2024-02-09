@@ -4,7 +4,14 @@ import axios from "axios";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import AddHotel from "./pages/AddHotel";
+import Login1 from "./components/Login1";
+import LoginPage from "./components/LoginPage";
 import "./App.css";
+import Service from "./components/ServicePage";
+import SignUpPage from "./components/SignUpPage";
+import EditHotel from "./pages/EditHotel";
+import AdminHome from "./pages/AdminHotel";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -25,7 +32,7 @@ function App() {
 	}, []);
 
 	return (
-		<div className="container">
+		<div>
 			<Routes>
 				{/* <Route
 					exact
@@ -36,6 +43,41 @@ function App() {
 					exact
 					path="/"
 					element={user ? <Navigate to="/" /> : <Login />}
+				/>
+				<Route
+					exact
+					path="/login1"
+					element=<Login1 />
+				/>
+				<Route
+					exact
+					path="/addhotel"
+					element=<AddHotel />
+				/>
+				<Route
+					exact
+					path="/adminhotel"
+					element=<AdminHome />
+				/>
+				<Route
+					exact
+					path="/edithotel"
+					element=<EditHotel />
+				/>
+				<Route
+					exact
+					path="/loginpage"
+					element=<LoginPage />
+				/>
+				<Route
+					exact
+					path="/service"
+					element=<Service />
+				/>
+				<Route
+					exact
+					path="/signuppage"
+					element=<SignUpPage />
 				/>
 				<Route
 					exact

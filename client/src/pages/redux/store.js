@@ -3,10 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { hotelsReducer } from './reducers/hotelReducer';
 import { alertsReducer } from './reducers/alertReducer';
+import { bookingsReducer } from './reducers/bookingReducer';
 
 const rootReducer = combineReducers({
   hotelsReducer,
- alertsReducer
+ alertsReducer,
+ bookingsReducer
 });
 
 // Use composeWithDevTools correctly

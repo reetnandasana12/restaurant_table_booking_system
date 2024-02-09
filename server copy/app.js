@@ -23,6 +23,12 @@ app.get("/",cors(),(req,res)=>{
 
 
 })
+// routes
+// app.use("api/users", userRoutes);
+// app.use("api/auth", authRoutes);
+// app.use("api/password-reset", passwordResetRoutes);
+
+
 
 app.post("/login",async(req,res)=>{
     const{email,password}= req.body
@@ -121,7 +127,7 @@ passport.deserializeUser((user,done)=>{
 app.get("/auth/google",passport.authenticate("google",{scope:["profile","email"]}));
 app.get("/auth/google/callback",passport.authenticate("google",{
     
-    successRedirect:"http://localhost:3000/Home/",
+    successRedirect:"http://localhost:3000/adminhotel/",
     failureRedirect:"http://localhost:3000/Signup/"
 }))
 
