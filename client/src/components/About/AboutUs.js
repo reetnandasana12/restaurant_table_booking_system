@@ -8,7 +8,8 @@ const AboutUs = () => {
     useEffect(() => {
         fetch('/aboutus.json')
         .then(res => res.json())
-            .then(data => setAboutData(data))
+            .then(data => setAboutData(data)) 
+            
     },[])
     return (
         <div className="max-w-screen-xl mx-auto my-12 px-6">
