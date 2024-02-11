@@ -36,7 +36,13 @@ app.post("/login",async(req,res)=>{
     try{
         const check = await userdb.findOne({email:email})
         if(check){
-            res.json("exist")
+            if(check.password===password){
+                res.json("exist")
+            }
+            else{
+                res.json("inv_pass")
+            }
+           
         }
         else{
         res.json("not_exist")
@@ -49,10 +55,12 @@ app.post("/login",async(req,res)=>{
 
 
         app.post("/signup",async(req,res)=>{
-            const{email,password}= req.body
+            const{email,password,image,name}= req.body
             const data={
                 email : email,
-                password : password
+                password : password,
+                displayName:name,
+                image:image
             }
         
             try{
@@ -127,8 +135,8 @@ passport.deserializeUser((user,done)=>{
 app.get("/auth/google",passport.authenticate("google",{scope:["profile","email"]}));
 app.get("/auth/google/callback",passport.authenticate("google",{
     
-    successRedirect:"http://localhost:3000/adminhotel/",
-    failureRedirect:"http://localhost:3000/Signup/"
+    successRedirect:"http://localhost:3000/home",
+    failureRedirect:"http://localhost:3000/signup/"
 }))
 
 

@@ -12,6 +12,8 @@ import Service from "./components/ServicePage";
 import SignUpPage from "./components/SignUpPage";
 import EditHotel from "./pages/EditHotel";
 import AdminHome from "./pages/AdminHotel";
+import SignInScreen from "./pages/SignInScreen";
+import SignUpScreen from "./pages/SignUpScreen";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -44,10 +46,16 @@ function App() {
 					path="/"
 					element={user ? <Navigate to="/" /> : <Login />}
 				/>
+				
 				<Route
 					exact
-					path="/login1"
-					element=<Login1 />
+					path="/login"
+					element=<SignInScreen />
+				/>
+				<Route
+					exact
+					path="/signup"
+					element=<SignUpScreen />
 				/>
 				<Route
 					exact
@@ -59,34 +67,12 @@ function App() {
 					path="/adminhotel"
 					element=<AdminHome />
 				/>
-				<Route
-					exact
-					path="/edithotel"
-					element=<EditHotel />
-				/>
-				<Route
-					exact
-					path="/loginpage"
-					element=<LoginPage />
-				/>
+				
+				
 				<Route
 					exact
 					path="/service"
 					element=<Service />
-				/>
-				<Route
-					exact
-					path="/signuppage"
-					element=<SignUpPage />
-				/>
-				<Route
-					exact
-					path="/login"
-					element={user ? <Navigate to="/" /> : <Login />}
-				/>
-				<Route
-					path="/signup"
-					element={user ? <Navigate to="/" /> : <Signup />}
 				/>
 				<Route
 					path="/home"
