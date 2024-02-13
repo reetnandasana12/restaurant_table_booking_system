@@ -2,6 +2,7 @@ import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 // import useAuth from '../../hooks/useAuth';
 
+import swal from "sweetalert";
 const GoogleSignIn = () => {
     // const { signInWithGoogle} = null;
     const googleAuth = () => {
@@ -9,6 +10,8 @@ const GoogleSignIn = () => {
 			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
 			"_self"
 		);
+        
+        swal("Wow!!!", "You are successfully  logged in.", "success");
 	};
     return (
         <>

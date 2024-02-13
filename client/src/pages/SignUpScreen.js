@@ -5,7 +5,7 @@ import GoogleSignIn from '../components/Form/GoogleSignIn'
 import TextField from '../components/Form/TextField'
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import swal from "sweetalert";
 
 const SignUpScreen = () => {
     const [userInput,setUserInput] = useState({
@@ -43,6 +43,7 @@ const SignUpScreen = () => {
 				}
 				else if(res.data === "not_exists")
 				{
+                    swal("Wow!!!", "You are successfully sign up.", "success");
 						history("/home",{state:{id:userInput.email}})
 				}
 			}).catch(e=>{

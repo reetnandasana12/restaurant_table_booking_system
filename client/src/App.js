@@ -14,6 +14,7 @@ import EditHotel from "./pages/EditHotel";
 import AdminHome from "./pages/AdminHotel";
 import SignInScreen from "./pages/SignInScreen";
 import SignUpScreen from "./pages/SignUpScreen";
+import HomeScreen from "./pages/HomeScreen";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -27,12 +28,13 @@ function App() {
 			console.log(err);
 		}
 	};
-	
+	// console.log(user);
 
 	useEffect(() => {
 		getUser();
 	}, []);
 
+	console.log(user);
 	return (
 		<div>
 			<Routes>
@@ -44,7 +46,7 @@ function App() {
 				<Route
 					exact
 					path="/"
-					element={user ? <Navigate to="/" /> : <Login />}
+					element={user ? <Navigate to="/home1" /> : <SignInScreen />}
 				/>
 				
 				<Route
@@ -56,6 +58,11 @@ function App() {
 					exact
 					path="/signup"
 					element=<SignUpScreen />
+				/>
+				<Route
+					exact
+					path="/home1"
+					element=<HomeScreen />
 				/>
 				<Route
 					exact

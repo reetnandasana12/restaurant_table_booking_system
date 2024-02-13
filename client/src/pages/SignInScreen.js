@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import useAuth from '../hooks/useAuth'
 
+import swal from "sweetalert";
 const SignInScreen = () => {
   const history = useNavigate();
 
@@ -24,10 +25,11 @@ const SignInScreen = () => {
         })
         .then((res) => {
           if (res.data === "exist") {
+            swal("Wow!!!", "You are successfully  logged in.", "success");
             history("/home", { state: { id: email } });
           } else if (res.data === "not_exist") {
             alert("user have not sign up");
-          }else if (res.data === "inv_pass") {
+          } else if (res.data === "inv_pass") {
             alert("incorrect password");
           }
         })

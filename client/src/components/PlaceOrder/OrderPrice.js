@@ -1,15 +1,15 @@
 import React from 'react';
-import { useOrder } from '../../contexts/OrderProvider';
+// import { useOrder } from '../../contexts/OrderProvider';
 
 const OrderPrice = () => {
-    const {order} = useOrder();
+    // const {order} = useOrder();
     // console.log(order);
 
     let allPrice = 0;
-    for (var i = 0; i < order.length; i++){
-        allPrice += order[i].price * order[i].quantity
-        // console.log(order[i].price * order[i].quantity)
-    }
+    // for (var i = 0; i < order.length; i++){
+    //     allPrice += order[i].price * order[i].quantity
+    //     // console.log(order[i].price * order[i].quantity)
+    // }
     console.log(allPrice)
 
     const subTotal = parseFloat(allPrice.toFixed(2));

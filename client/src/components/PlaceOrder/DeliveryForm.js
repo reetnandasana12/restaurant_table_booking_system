@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
-import { useDelivery } from '../../contexts/DeliveryProvider';
-import useAuth from '../../hooks/useAuth';
+// import { useDelivery } from '../../contexts/DeliveryProvider';
+// import useAuth from '../../hooks/useAuth';
 import TextField from '../Form/TextField';
 
 const DeliveryForm = () => {
-    const { user } = useAuth()
+    // const { user } = useAuth()
 
     const [change, setChange] = useState({
         country: '',
         roadNo: '',
         flatno: '',
-        name: `${user.displayName}`
+        // name: `${user.displayName}`
     })
-    const { setInput, setDisabled } = useDelivery();
+    // const { setInput, setDisabled } = useDelivery();
 
     //handle Change 
     const handleChange = (e) => {
@@ -30,14 +30,14 @@ const DeliveryForm = () => {
     //handle Submit 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setInput({
-            country: change.country,
-            roadNo: change.roadNo,
-            flatno: change.flatno,
-            name: change.name
-        })
+        // setInput({
+        //     country: change.country,
+        //     roadNo: change.roadNo,
+        //     flatno: change.flatno,
+        //     name: change.name
+        // })
         swal("Information Updated!", "Your shipping details updated successfully!", "success")
-        setDisabled(false)
+        // setDisabled(false)
     }
 
     return (

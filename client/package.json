@@ -8,21 +8,22 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.13.3",
+    "autoprefixer": "^10.4.17",
     "axios": "^0.27.2",
     "caniuse-lite": "^1.0.30001582",
     "mongoose": "^8.0.3",
+    "postcss": "^8.4.35",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-icons": "^5.0.1",
     "react-redux": "^7.2.5",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
     "redux": "^4.2.1",
-    "react-icons": "^5.0.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.0",
-    "postcss": "^8",
-    "react-spinners": "^0.13.8",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
@@ -33,7 +34,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss tailwindcss.css -o output.css"
   },
   "eslintConfig": {
     "extends": [

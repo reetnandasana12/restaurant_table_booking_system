@@ -1,11 +1,11 @@
 import React from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useOrder } from '../../contexts/OrderProvider';
+// import { useOrder } from '../../contexts/OrderProvider';
 
 const OrderCard = (props) => {
     // const copyObj = {...props}
     // const [quantity, setQuantity] = useState(props.quantity);
-    const { removeOrder } = useOrder();
+    // const { removeOrder } = useOrder();
 
     return (
         <div className=" rounded-lg p-4 flex space-x-3">
@@ -44,7 +44,7 @@ const OrderCard = (props) => {
 
             {/* remove button  */}
             <div className="flex flex-col items-center justify-center">
-                <AiOutlineDelete className="w-6 h-6 text-gray-600 transform transition hover:scale-105 duration-500 cursor-pointer" onClick={() => removeOrder(props.id)} />
+                {/* <AiOutlineDelete className="w-6 h-6 text-gray-600 transform transition hover:scale-105 duration-500 cursor-pointer" onClick={() => removeOrder(props.id)} /> */}
             </div>
         </div>
     )

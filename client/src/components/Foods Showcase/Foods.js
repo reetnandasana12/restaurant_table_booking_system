@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import useFetch from '../../hooks/useFetch';
+// import useFetch from '../../hooks/useFetch';
 import FoodItem from './FoodItem';
 import Skeleton from './Skeleton';
-
+import React , {useState,useEffect} from 'react'
+import { useSelector , useDispatch } from 'react-redux'
+// import DefaultLayout from '../components/DefaultLayout'
+import { getAllHotels } from '../../pages/redux/action/hotelActions'
+// import { Button, Col, Row } from 'antd'
+// import {Link} from 'react-router-dom'
 const Foods = () => {
     const [menuTab, setMenuTab] = useState('Breakfast')
     const [loading, setLoading] = useState(false)
-    const [foods] = useFetch();
+    // const [foods] = useFetch();
 
     //loading 
     useEffect(() => {
@@ -20,6 +24,19 @@ const Foods = () => {
     const handleMenuTabs = (type) => {
         setMenuTab(type)
     }
+    //default end
+
+
+
+    //change is here
+    const {hotels} = useSelector(state=>state.hotelsReducer)
+    const dispatch = useDispatch()
+  
+    useEffect(() => {
+        dispatch(getAllHotels())
+    }, [])
+
+
 
     return (
         <section className="my-12 max-w-screen-xl mx-auto px-6">
@@ -32,7 +49,8 @@ const Foods = () => {
 
             {/* all foods  */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-                {foods.filter((item) => menuTab === item.foodType).map(item => (
+            {/* .filter((item) => menuTab === item.foodType) paste this */}
+                {hotels.map(item => (
                     loading ? <Skeleton key={item._id} /> : <FoodItem key={item._id} {...item} />
                 ))}
             </div>
