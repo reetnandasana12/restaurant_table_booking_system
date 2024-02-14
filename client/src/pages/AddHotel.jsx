@@ -1,54 +1,147 @@
-import { Col , Row , Form , Input} from 'antd'
-import React from 'react'
-import { useDispatch , useSelector } from 'react-redux'
-import DefaultLayout from '../components/DefaultLayout'
-import Spinner from '../components/Spinner'
-import { addHotel } from './redux/action/hotelActions'
+import React, { useState } from 'react';
+import { Col, Row, Form, Input } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import DefaultLayout from "../components/DefaultLayout";
+import Spinner from "../components/Spinner";
+import { addHotel } from "./redux/action/hotelActions";
+
 function AddHotel() {
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.alertsReducer);
+  const [objectUrl, setObjectUrl] = useState("");
+  const [file, setFile] = useState(null); // Initialize with null
 
-    const dispatch = useDispatch()
-    const {loading} = useSelector(state=>state.alertsReducer)
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
 
-    function onFinish(values){
-
-         values.bookedTimeSlots=[]
-
-         dispatch(addHotel(values))
-         console.log(values)
+  const onFinish = async (values) => {
+    if (!file) {
+      alert("Please select an image file.");
+      return;
     }
 
-    return (
-        <DefaultLayout>
-               {loading && (<Spinner />)}
-               <Row justify='center mt-5'>
-                   <Col lg={12} sm={24} xs={24} className='p-2'>
-                       <Form className='bs1 p-2' layout='vertical' onFinish={onFinish}>
-                           <h3>Add New Hotel</h3>
-                           <hr />
-                           <Form.Item name='name' label='Hotel name' rules={[{required: true}]}>
-                               <Input/>
-                           </Form.Item>
-                           <Form.Item name='image' label='Image url' rules={[{required: true}]}>
-                               <Input/>
-                           </Form.Item>
-                           
-                           <Form.Item name='capacity' label='Capacity' rules={[{required: true}]}>
-                               <Input/>
-                           </Form.Item>
-                           <Form.Item name='foodType' label='Food Type' rules={[{required: true}]}>
-                               <Input/>
-                           </Form.Item>
+    const response = await fetch("/api/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filename: file.name,
+        contentType: file.type,
+      }),
+    });
 
-                           <div className='text-right'>
-                           <button className='btn1'>ADD Hotel</button>
-                           </div>
+    try {
+      const responseData = await response.json();
+      console.log("Server Response:", responseData);
 
-                       </Form>
-                   </Col>
-               </Row>
+      const uploadResponse = await fetch(responseData.url, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "Content-Type": file.type,
+        },
+      });
 
-        </DefaultLayout>
-    )
+      console.log("Image uploaded successfully:", uploadResponse);
+
+      // Update objectUrl after successful image upload
+      setObjectUrl(responseData.objectUrl);
+
+      // Assign the correct value to values.image
+      values.image = responseData.objectUrl;
+
+      dispatch(addHotel(values));
+      console.log(values);
+    } catch (error) {
+      console.error("Error parsing server response:", error);
+    }
+  };
+
+  return (
+    <DefaultLayout>
+      {loading && <Spinner />}
+      <br />
+      <br />
+      <br />
+      <Row justify="center mt-5">
+        <Col lg={12} sm={24} xs={24} className="p-2">
+          <Form className="bs1 p-2" layout="vertical" onFinish={onFinish}>
+            <h3>Add New Hotel</h3>
+            <hr />
+            <Form.Item
+              name="name"
+              label="Hotel name"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="image"
+              label="Click on below button for upload image from your device"
+              rules={[{ required: true }]}
+            >
+              {/* Conditional rendering based on whether file is selected */}
+              {file ? (
+                <p>File selected: {file.name}</p>
+              ) : (
+                <>
+                  <input
+                    type="file"
+                    onChange={handleFileChange}
+                    accept="image/*"
+                  />
+                  {/* <button onClick={uploadImage}>Upload Image</button> */}
+                </>
+              )}
+            </Form.Item>
+            <Form.Item
+              name="capacity"
+              label="Capacity"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="fuelType"
+              label="Fuel Type"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item name="year" label="year" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="mileage"
+              label="mileage"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="foodType"
+              label="foodType"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="rentPerHour"
+              label="rentPerHour"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <div className="text-right">
+              <button className="btn1">ADD HOTEL</button>
+            </div>
+          </Form>
+        </Col>
+      </Row>
+    </DefaultLayout>
+  );
 }
 
 export default AddHotel;

@@ -13,6 +13,7 @@ import SignUpPage from "./components/SignUpPage";
 import EditHotel from "./pages/EditHotel";
 import AdminHome from "./pages/AdminHotel";
 import SignInScreen from "./pages/SignInScreen";
+// import FoodDetailScreen from "./pages/FoodDetailScreen";
 import SignUpScreen from "./pages/SignUpScreen";
 import HomeScreen from "./pages/HomeScreen";
 
@@ -64,6 +65,12 @@ function App() {
 					path="/home1"
 					element=<HomeScreen />
 				/>
+				
+				{/* <Route
+					exact
+					path="/fooddetail"
+					element=<FoodDetailScreen />
+				/> */}
 				<Route
 					exact
 					path="/addhotel"
