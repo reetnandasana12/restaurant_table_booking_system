@@ -5,17 +5,22 @@ import { useState } from "react";
 
 
 function Signup() {
+
+	
+	const history = useNavigate();
+	const [email,setEmail] = useState('')
+	const [password,setPassport] = useState('')
+
+
 	const googleAuth = () => {
+		
+		localStorage.setItem("user",JSON.stringify(email))
 		window.open(
 			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
 			"_self"
 		);
 	};
 
-
-	const history = useNavigate();
-	const [email,setEmail] = useState('')
-	const [password,setPassport] = useState('')
 
 	async function submit(e){
 		e.preventDefault();
@@ -31,6 +36,8 @@ function Signup() {
 				}
 				else if(res.data === "not_exists")
 				{
+					
+		localStorage.setItem("user",JSON.stringify(email))
 						history("/home",{state:{id:email}})
 				}
 			}).catch(e=>{
