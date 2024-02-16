@@ -18,7 +18,10 @@ import SignUpScreen from "./pages/SignUpScreen";
 import HomeScreen from "./pages/HomeScreen";
 
 function App() {
-	const [user, setUser] = useState(null);
+
+	const isAuthenticatedUser = localStorage.getItem("email");
+  const user = localStorage.getItem("email");
+	const [setUser] = useState(null);
 
 	const getUser = async () => {
 		try {
@@ -29,7 +32,8 @@ function App() {
 			console.log(err);
 		}
 	};
-	// console.log(user);
+	
+	console.log(user);
 
 	useEffect(() => {
 		getUser();

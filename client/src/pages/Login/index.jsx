@@ -15,7 +15,15 @@ function Login() {
 
   console.log(hotels.length);
 
+  
+	const history = useNavigate();
+
+	const [email,setEmail] = useState('')
+	const [password,setpassword] = useState('')
+
 	const googleAuth = () => {
+		
+		localStorage.setItem("user",email)
 		window.open(
 			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
 			"_self"
@@ -23,37 +31,31 @@ function Login() {
 	};
 
 
-	const history = useNavigate();
 
-	const [email,setEmail] = useState('')
-	const [password,setpassword] = useState('')
+	 function submit(e) {
+    e.preventDefault();
 
-	 function submit(e){
-		e.preventDefault();
-
-
-		try{
-		    axios.post("http://localhost:6005/login",{
-				email,password
-			}).then(res=>{
-				if(res.data==="exist")
-				{
-						history("/home",{state:{id:email}})
-				}
-				else if(res.data==="not_exist")
-				{
-					alert("user have not sign up")
-				}
-			}).catch(e=>{
-
-				alert("wrong details")
-				console.log(e);
-			})
-
-		}catch{
-				console.log(e);
-		}
-	}
+    try {
+        axios.post("http://localhost:6005/login", {
+            email,
+            password
+        }).then(res => {
+            if (res.data === "exist") {
+				localStorage.setItem("token", res.data.token)
+                localStorage.setItem("userId", res.data.id)
+                localStorage.setItem("user", email);
+                history("/home", { state: { id: email } });
+            } else if (res.data === "not_exist") {
+                alert("User has not signed up");
+            }
+        }).catch(error => {
+            alert("Wrong details");
+            console.log(error);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Log in Form</h1>
