@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 // import { useDelivery } from '../../contexts/DeliveryProvider';
 // import useAuth from '../../hooks/useAuth';
 import TextField from '../Form/TextField';
+import { Link } from 'react-router-dom';
 
 const DeliveryForm = () => {
     // const { user } = useAuth()
@@ -47,7 +48,7 @@ const DeliveryForm = () => {
                 <div className="flex flex-col space-y-3">
                     <TextField
                         type="text"
-                        placeholder="Country and District"
+                        placeholder="Name"
                         name="country"
                         value={change.country}
                         onChange={handleChange}
@@ -55,7 +56,7 @@ const DeliveryForm = () => {
                     />
                     <TextField
                         type="text"
-                        placeholder="Road Name and Road No"
+                        placeholder="Number"
                         name="roadNo"
                         value={change.roadNo}
                         onChange={handleChange}
@@ -63,7 +64,7 @@ const DeliveryForm = () => {
                     />
                     <TextField
                         type="text"
-                        placeholder="Flat, suite or floor"
+                        placeholder="No. of guest"
                         name="flatno"
                         value={change.flatno}
                         onChange={handleChange}
@@ -71,13 +72,13 @@ const DeliveryForm = () => {
                     />
                     <TextField
                         type="text"
-                        placeholder="Delivery to"
+                        placeholder="Time Slot"
                         name="name"
                         value={change.name}
                         onChange={handleChange}
                         required
                     />
-                    <button className="w-full px-6 py-3 rounded-lg bg-primary text-white poppins ring-red-300 focus:ring-4 transition duration-500">Save & Continue</button>
+                    <button className="w-full px-6 py-3 rounded-lg bg-primary text-white poppins ring-red-300 focus:ring-4 transition duration-500"><Link to={'/ordersuccess'}>Save & Continue</Link></button>
                 </div>
             </form>
         </div>

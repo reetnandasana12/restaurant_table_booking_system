@@ -3,10 +3,14 @@ import styles from "./styles.module.css";
 import axios from "axios";
 import { useState } from "react";
 
+import { useSelector , useDispatch } from 'react-redux'
+
+import { userRegister } from '../redux/action/userActions'
 
 function Signup() {
 
-	
+	const dispatch = useDispatch()
+
 	const history = useNavigate();
 	const [email,setEmail] = useState('')
 	const [password,setPassport] = useState('')
@@ -23,32 +27,11 @@ function Signup() {
 
 
 	async function submit(e){
-		e.preventDefault();
+		// e.preventDefault();
 
 
-		try{
-			await axios.post("http://localhost:6005/signup/",{
-				email,password
-			}).then(res=>{
-				if(res.data=== "exists")
-				{
-					alert("user already exist")
-				}
-				else if(res.data === "not_exists")
-				{
-					
-		localStorage.setItem("user",JSON.stringify(email))
-						history("/home",{state:{id:email}})
-				}
-			}).catch(e=>{
-
-				alert("wrong details")
-				console.log(e);
-			})
-
-		}catch{
-				console.log(e);
-		}
+		dispatch(userRegister({email,password}))
+		console.log(e)
 	}
 	return (
 		<div className={styles.container}>

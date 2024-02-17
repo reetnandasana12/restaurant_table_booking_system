@@ -29,6 +29,7 @@ router.post("/edithotel", async (req, res) => {
     const hotel = await Hotel.findOne({ _id: req.body._id });
     hotel.name = req.body.name;
     hotel.image = req.body.image;
+    hotel.email = req.body.email;
     hotel.fuelType = req.body.fuelType;
     hotel.rentPerHour = req.body.rentPerHour;
     hotel.capacity = req.body.capacity;

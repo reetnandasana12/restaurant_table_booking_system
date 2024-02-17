@@ -7,7 +7,11 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
 
+import { useSelector , useDispatch } from 'react-redux'
+import { userRegister } from './redux/action/userActions'
 const SignUpScreen = () => {
+    
+	const dispatch = useDispatch()
     const [userInput,setUserInput] = useState({
         name: '',
         email: '',
@@ -31,30 +35,30 @@ const SignUpScreen = () => {
 
 	async function submit(e){
 		e.preventDefault();
+        dispatch(userRegister(userInput))
 
+		// try{
+		// 	await axios.post("http://localhost:6005/signup/",
+		// 		userInput
+		// 	).then(res=>{
+		// 		if(res.data=== "exists")
+		// 		{
+		// 			alert("user already exist")
+		// 		}
+		// 		else if(res.data === "not_exists")
+		// 		{
+        //             swal("Wow!!!", "You are successfully sign up.", "success");
+		// 				history("/home",{state:{id:userInput.email}})
+		// 		}
+		// 	}).catch(e=>{
 
-		try{
-			await axios.post("http://localhost:6005/signup/",
-				userInput
-			).then(res=>{
-				if(res.data=== "exists")
-				{
-					alert("user already exist")
-				}
-				else if(res.data === "not_exists")
-				{
-                    swal("Wow!!!", "You are successfully sign up.", "success");
-						history("/home",{state:{id:userInput.email}})
-				}
-			}).catch(e=>{
+		// 		alert("wrong details")
+		// 		console.log(e);
+		// 	})
 
-				alert("wrong details")
-				console.log(e);
-			})
-
-		}catch{
-				console.log(e);
-		}
+		// }catch{
+		// 		console.log(e);
+		// }
 	}
 
 

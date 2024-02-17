@@ -51,7 +51,7 @@ function AddHotel() {
 
       // Assign the correct value to values.image
       values.image = responseData.objectUrl;
-
+      values.email = localStorage.getItem("userid")
       dispatch(addHotel(values));
       console.log(values);
     } catch (error) {

@@ -4,43 +4,34 @@ import GoogleSignIn from "../components/Form/GoogleSignIn";
 import TextField from "../components/Form/TextField";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useSelector , useDispatch } from 'react-redux'
+import { userLogin } from './redux/action/userActions'
 import axios from "axios";
-// import useAuth from '../hooks/useAuth'
 
-import swal from "sweetalert";
 const SignInScreen = () => {
-  const history = useNavigate();
+	const dispatch = useDispatch()
 
-  const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
 
-  function submit(e) {
-    e.preventDefault();
+	// const history = useNavigate();
 
-    try {
-      axios
-        .post("http://localhost:6005/login", {
-          email,
-          password,
-        })
-        .then((res) => {
-          if (res.data === "exist") {
-            swal("Wow!!!", "You are successfully  logged in.", "success");
-            history("/home", { state: { id: email } });
-          } else if (res.data === "not_exist") {
-            alert("user have not sign up");
-          } else if (res.data === "inv_pass") {
-            alert("incorrect password");
-          }
-        })
-        .catch((e) => {
-          alert("wrong details");
-          console.log(e);
-        });
-    } catch {
-      console.log(e);
-    }
-  }
+	const [email,setEmail] = useState('')
+	const [password,setpassword] = useState('')
+
+	const googleAuth = () => {
+		
+		localStorage.setItem("user",email)
+		window.open(
+			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
+			"_self"
+		);
+	};
+
+
+
+	 function submit(e) {
+		e.preventDefault();
+	dispatch(userLogin({email,password}));
+}
 
   //form inputs
   const Inputs = [

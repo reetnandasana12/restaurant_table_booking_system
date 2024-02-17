@@ -13,9 +13,12 @@ import SignUpPage from "./components/SignUpPage";
 import EditHotel from "./pages/EditHotel";
 import AdminHome from "./pages/AdminHotel";
 import SignInScreen from "./pages/SignInScreen";
+import Booking from "./pages/Booking";
 // import FoodDetailScreen from "./pages/FoodDetailScreen";
 import SignUpScreen from "./pages/SignUpScreen";
 import HomeScreen from "./pages/HomeScreen";
+import PlaceOrderScreen from "./pages/PlaceOrderScreen";
+import OrderSuccessfulScreen from "./pages/OrderSuccessfulScreen";
 
 function App() {
 
@@ -70,16 +73,30 @@ function App() {
 					element=<HomeScreen />
 				/>
 				
+				<Route path='/booking/:hotelid' exact element=<Booking/>/>
+				
+				
+				<Route path='/placeorder/:hotelid' exact element=<PlaceOrderScreen/>/>
+
+				
+				<Route path='/ordersuccess' exact element=<OrderSuccessfulScreen/>/>
 				{/* <Route
 					exact
 					path="/fooddetail"
 					element=<FoodDetailScreen />
 				/> */}
+				OrderSuccessfulScreen
 				<Route
 					exact
 					path="/addhotel"
 					element=<AddHotel />
 				/>
+				<Route
+					exact
+					path="/edithotel"
+					element=<EditHotel />
+				/>
+				
 				<Route
 					exact
 					path="/adminhotel"
