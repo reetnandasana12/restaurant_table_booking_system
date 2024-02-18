@@ -38,6 +38,7 @@ const DeliveryForm = () => {
         //     name: change.name
         // })
         swal("Information Updated!", "Your shipping details updated successfully!", "success")
+        window.location = "/ordersuccess";
         // setDisabled(false)
     }
 

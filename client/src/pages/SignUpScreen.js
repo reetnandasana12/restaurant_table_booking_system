@@ -11,6 +11,7 @@ import { useSelector , useDispatch } from 'react-redux'
 import { userRegister } from './redux/action/userActions'
 const SignUpScreen = () => {
     
+    const type = localStorage.getItem("type");
 	const dispatch = useDispatch()
     const [userInput,setUserInput] = useState({
         name: '',
@@ -31,11 +32,11 @@ const SignUpScreen = () => {
 
     }
 
-	const history = useNavigate();
+	// const history = useNavigate();
 
 	async function submit(e){
 		e.preventDefault();
-        dispatch(userRegister(userInput))
+        dispatch(userRegister({...userInput,type:type}))
 
 		// try{
 		// 	await axios.post("http://localhost:6005/signup/",

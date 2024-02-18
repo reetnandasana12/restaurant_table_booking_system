@@ -16,7 +16,8 @@ const SignInScreen = () => {
 
 	const [email,setEmail] = useState('')
 	const [password,setpassword] = useState('')
-
+  const type = localStorage.getItem("type");
+  // console.log(type);
 	const googleAuth = () => {
 		
 		localStorage.setItem("user",email)
@@ -30,7 +31,7 @@ const SignInScreen = () => {
 
 	 function submit(e) {
 		e.preventDefault();
-	dispatch(userLogin({email,password}));
+	dispatch(userLogin({email,password,type}));
 }
 
   //form inputs
@@ -77,12 +78,13 @@ const SignInScreen = () => {
             ))}
           </div>
           <Button text="Sign In" />
+          {type!=="admin"&&
           <Link to="/signup">
             <p className="text-base text-primary text-center my-6 hover:underline">
               Need an account ?
             </p>
           </Link>
-
+          }
           <GoogleSignIn text="Sign In With Google" />
         </form>
       </div>

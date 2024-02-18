@@ -2,11 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import AddHotel from "./pages/AddHotel";
-import Login1 from "./components/Login1";
-import LoginPage from "./components/LoginPage";
 import "./App.css";
 import Service from "./components/ServicePage";
 import SignUpPage from "./components/SignUpPage";
@@ -19,6 +15,8 @@ import SignUpScreen from "./pages/SignUpScreen";
 import HomeScreen from "./pages/HomeScreen";
 import PlaceOrderScreen from "./pages/PlaceOrderScreen";
 import OrderSuccessfulScreen from "./pages/OrderSuccessfulScreen";
+import HotelDetails from "./pages/abc/HotelDetails";
+import SelectUser from "./pages/SelectUser";
 
 function App() {
 
@@ -85,7 +83,9 @@ function App() {
 					path="/fooddetail"
 					element=<FoodDetailScreen />
 				/> */}
-				OrderSuccessfulScreen
+				
+				<Route exact path="/hotel" element={<HotelDetails/>} />
+				
 				<Route
 					exact
 					path="/addhotel"
@@ -101,6 +101,11 @@ function App() {
 					exact
 					path="/adminhotel"
 					element=<AdminHome />
+				/>
+				<Route
+					exact
+					path="/selectUser"
+					element=<SelectUser />
 				/>
 				
 				

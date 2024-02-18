@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
   .menu_tab {
     @apply text-gray-800 cursor-pointer select-none;
@@ -10,3 +11,4 @@
     @apply rounded-full px-4 py-2 text-white select-none;
   }
 }
+

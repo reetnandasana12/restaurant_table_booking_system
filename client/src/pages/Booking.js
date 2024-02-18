@@ -7,6 +7,7 @@ import DefaultLayout from "../components/DefaultLayout";
 import {Link} from 'react-router-dom'
 import { useSelector , useDispatch } from 'react-redux'
 import { getAllHotels } from './redux/action/hotelActions';
+import HotelDetails from './abc/HotelDetails';
 function Booking(props) {
   const { hotelid } = useParams();
   
@@ -24,6 +25,7 @@ function Booking(props) {
       <br></br>
       <h1>Booking</h1>
       {/* <CarDetails hotel={hotel}/> */}
+      <HotelDetails/>
       <Link to={`/placeorder/${hotelid}`}>book table</Link>
      
     </DefaultLayout>
