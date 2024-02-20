@@ -38,16 +38,16 @@ const SignInScreen = () => {
   const Inputs = [
     {
       id: 1,
-      type: "email",
+      type: "textfield",
       placeholder: "Email",
-      value: `${email}`,
+      value: email,
       name: "email",
     },
     {
       id: 2,
       type: "password",
       placeholder: "Password",
-      value: `${password}`,
+      value: password,
       name: "password",
     },
   ];

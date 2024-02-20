@@ -16,13 +16,42 @@ router.get("/getallhotels", async (req, res) => {
 
 router.post("/addhotel", async (req, res) => {
   try {
-    const newhotel = new Hotel(req.body);
+    console.log("11111111111111111111111");
+
+    // Validate that the required fields are present in the request body
+    const requiredFields = ['name', 'email', 'phone', 'image', 'location', 'catagory', 'opening', 'closing'];
+    for (const field of requiredFields) {
+      if (!req.body[field]) {
+        return res.status(400).json({ error: `${field} is required.` });
+      }
+    }
+
+    const newhotel = new Hotel({
+      name: req.body.name,
+      description: req.body.description,
+      email: req.body.email,
+      phone: req.body.phone,
+      image: req.body.image,
+      location: req.body.location,
+      catagory: req.body.catagory,
+      opening: req.body.opening,
+      closing: req.body.closing,
+      foodType: req.body.foodType,
+      star: req.body.star,
+      bookedTimeSlots: req.body.bookedTimeSlots,
+      // Other fields...
+    });
+
     await newhotel.save();
+
+    console.log("122222222222222222222222222");
     res.send("Hotel added successfully");
   } catch (error) {
+    console.error("Error saving hotel:", error);
     return res.status(400).json(error);
   }
 });
+
 
 router.post("/edithotel", async (req, res) => {
   try {

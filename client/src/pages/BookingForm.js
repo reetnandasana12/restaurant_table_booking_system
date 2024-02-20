@@ -5,7 +5,8 @@ import { addHotel } from "./redux/action/hotelActions";
 import Brand from "../components/Form/Brand";
 import Button from "../components/Form/Button";
 import TextField from "../components/Form/TextField";
-function AddHotel() {
+
+function BookingForm() {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.alertsReducer);
   const [objectUrl, setObjectUrl] = useState("");
@@ -224,7 +225,6 @@ function AddHotel() {
                    {/* <button onClick={uploadImage}>Upload Image</button> */}
                  </>
                )}
-              {/* <input type="file" alt="abc" value={data.image} className="px-4 my-2" onChange={onChange} name="image"></input> */}
             </div>
           </div>
           
@@ -235,4 +235,4 @@ function AddHotel() {
   );
 }
 
-export default AddHotel;
+export default BookingForm;

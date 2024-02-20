@@ -17,28 +17,29 @@ import PlaceOrderScreen from "./pages/PlaceOrderScreen";
 import OrderSuccessfulScreen from "./pages/OrderSuccessfulScreen";
 import HotelDetails from "./pages/abc/HotelDetails";
 import SelectUser from "./pages/SelectUser";
+import AdminDashBoard from "./pages/AdminDashBoard";
 
 function App() {
 
-	const isAuthenticatedUser = localStorage.getItem("email");
+	// const isAuthenticatedUser = localStorage.getItem("email");
   const user = localStorage.getItem("email");
-	const [setUser] = useState(null);
+	// const [setUser] = useState(null);
 
-	const getUser = async () => {
-		try {
-			const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
-			const { data } = await axios.get(url, { withCredentials: true });
-			setUser(data.user._json);
-		} catch (err) {
-			console.log(err);
-		}
-	};
+	// const getUser = async () => {
+	// 	try {
+	// 		const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
+	// 		const { data } = await axios.get(url, { withCredentials: true });
+	// 		setUser(data.user._json);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// };
 	
-	console.log(user);
+	// console.log(user);
 
-	useEffect(() => {
-		getUser();
-	}, []);
+	// useEffect(() => {
+	// 	getUser();
+	// }, []);
 
 	console.log(user);
 	return (
@@ -90,6 +91,12 @@ function App() {
 					exact
 					path="/addhotel"
 					element=<AddHotel />
+				/>
+				
+				<Route
+					exact
+					path="/admindashboard"
+					element=<AdminDashBoard />
 				/>
 				<Route
 					exact

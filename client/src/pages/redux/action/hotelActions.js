@@ -22,12 +22,14 @@ export const addHotel=(reqObj)=>async dispatch=>{
     dispatch({type: 'LOADING' , payload:true})
 
     try {
-         await axios.post('/api/hotels/addhotel' , reqObj)
+        
+    console.log("11111111111111111111111",reqObj);
+         await axios.post('http://localhost:6005/api/hotels/addhotel' , reqObj)
        
          dispatch({type: 'LOADING' , payload:false})
         //  message.success('New hotel added successfully');
          setTimeout(() => {
-            window.location.href='/admin'
+            // window.location.href='/admin'
          }, 500);
     } catch (error) {
         console.log(error)
