@@ -18,6 +18,7 @@ import OrderSuccessfulScreen from "./pages/OrderSuccessfulScreen";
 import HotelDetails from "./pages/abc/HotelDetails";
 import SelectUser from "./pages/SelectUser";
 import AdminDashBoard from "./pages/AdminDashBoard";
+import BookingForm from "./pages/BookingForm";
 
 function App() {
 
@@ -68,7 +69,7 @@ function App() {
 				/>
 				<Route
 					exact
-					path="/home1"
+					path="/home"
 					element=<HomeScreen />
 				/>
 				
@@ -91,6 +92,11 @@ function App() {
 					exact
 					path="/addhotel"
 					element=<AddHotel />
+				/>
+				<Route
+					exact
+					path="/bookform/:id"
+					element=<BookingForm />
 				/>
 				
 				<Route

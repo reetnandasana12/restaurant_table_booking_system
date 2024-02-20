@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-const bookSchema = new mongoose.Schema({
+const bookingSchema = new mongoose.Schema({
     
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -15,6 +15,6 @@ const bookSchema = new mongoose.Schema({
 
 },{timestamps:true});
 
-const bookdb = new mongoose.model("booking",bookSchema);
+const bookingdb = new mongoose.model("booking",bookingSchema);
 
-module.exports = bookdb;
+module.exports = bookingdb;

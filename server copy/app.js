@@ -16,6 +16,7 @@ const clientsecret = "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";
 app.use(cors());
 
 app.use("/api/hotels/", require("./routes/hotelRoute"));
+app.use("/api/bookings/", require("./routes/bookingRoute"));
 
 app.use(express.json());
 

@@ -1,15 +1,16 @@
 import axios from "axios";
 import { message } from "antd";
+
 export const bookHotel = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-     await axios.post("/api/bookings/bookhotel" , reqObj);
+     await axios.post("http://localhost:6005/api/bookings/bookhotel" , reqObj);
 
     dispatch({ type: "LOADING", payload: false });
     message.success("Your hotel booked successfully");
     setTimeout(() => {
-      window.location.href='/userbookings'
+      window.location.href='/ordersuccess'
     }, 500);
 
     

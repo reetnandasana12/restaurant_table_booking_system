@@ -27,7 +27,7 @@ export const userLogin=(reqObj)=>async dispatch=>{
                 window.location.href='/owner';
             }
             else if (type === "user"){
-                window.location.href='/home1';
+                window.location.href='/home';
             }
         }, 500);
     } catch (error) {
@@ -56,7 +56,7 @@ export const userRegister=(reqObj)=>async dispatch=>{
                 window.location.href='/owner'
             }
             else if (type === "user"){
-                window.location.href='/home1'
+                window.location.href='/home'
             }
 
          
