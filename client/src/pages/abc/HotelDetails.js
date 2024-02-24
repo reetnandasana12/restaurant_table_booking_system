@@ -4,7 +4,7 @@ import HotelPhotos from "./HotelPhotos";
 import HotelInformation from "./hotelinformation";
 import "../../style/HotelDetails.css";
 
-const HotelDetails = () => {
+const HotelDetails = ({hotel}) => {
   const hotelInfo = {
     name: "Cozy Inn",
     location: "123 Main Street, Cityville",
@@ -23,7 +23,7 @@ const HotelDetails = () => {
         <HotelPhotos photos={hotelInfo.photos} />
       </div>
       <div className="hotel-details-container">
-        <HotelInformation {...hotelInfo} />
+        <HotelInformation {...hotel} />
       </div>
     </div>
   );

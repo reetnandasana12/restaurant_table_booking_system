@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",
+    "@heroicons/react": "^2.1.1",
+    "@material-tailwind/react": "^2.1.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -29,9 +31,9 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.0",
     "scss": "^0.2.4",
+    "slick-carousel": "^1.8.1",
     "sweetalert": "^2.1.2",
-    "web-vitals": "^2.1.4",
-    "slick-carousel": "^1.8.1"
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.20",

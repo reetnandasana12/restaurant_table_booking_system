@@ -6,9 +6,9 @@ const AboutUs = () => {
 
     //fetching about us data
     useEffect(() => {
-        fetch('/aboutus.json')
-        .then(res => res.json())
-            .then(data => setAboutData(data)) 
+        // fetch('/aboutus.json')
+        // .then(res => res.json())
+        //     .then(data => setAboutData(data)) 
             
     },[])
     return (

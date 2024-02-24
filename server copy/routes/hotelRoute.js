@@ -19,7 +19,7 @@ router.post("/addhotel", async (req, res) => {
     console.log("11111111111111111111111");
 
     // Validate that the required fields are present in the request body
-    const requiredFields = ['name', 'email', 'phone', 'image', 'location', 'catagory', 'opening', 'closing'];
+    const requiredFields = ['name', 'email', 'phone', 'own_id', 'image', 'location', 'catagory', 'opening', 'closing'];
     for (const field of requiredFields) {
       if (!req.body[field]) {
         return res.status(400).json({ error: `${field} is required.` });
@@ -32,6 +32,7 @@ router.post("/addhotel", async (req, res) => {
       email: req.body.email,
       phone: req.body.phone,
       image: req.body.image,
+      own_id: req.body.own_id,
       location: req.body.location,
       catagory: req.body.catagory,
       opening: req.body.opening,

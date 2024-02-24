@@ -17,14 +17,18 @@ function Booking(props) {
   }, [])
 
   const hotel = hotels.find(hotel=>hotel._id===hotelid);
-
+  console.log(hotel);
+  
   return (
     <DefaultLayout>
       <br></br>
       <h1>Booking</h1>
       {/* <CarDetails hotel={hotel}/> */}
-      <HotelDetails/>
+      <HotelDetails hotel={hotel}/>
+      <button>
+
       <Link to={`/bookform/${hotelid}`}>book table</Link>
+      </button>
      
     </DefaultLayout>
   );

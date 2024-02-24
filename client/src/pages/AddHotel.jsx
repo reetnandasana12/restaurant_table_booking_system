@@ -124,8 +124,9 @@ function AddHotel() {
 
       // Assign the correct value to values.image
       data.image = responseData.objectUrl;
-      // values.email = localStorage.getItem("userid");
-      dispatch(addHotel(data));
+      const id = JSON.parse(localStorage.getItem("userid"));
+      console.log(id);
+      dispatch(addHotel({...data,own_id:id}));
       console.log(data);
     } catch (error) {
       console.error("Error parsing server response:", error);

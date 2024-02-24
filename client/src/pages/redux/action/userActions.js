@@ -43,24 +43,31 @@ export const userRegister=(reqObj)=>async dispatch=>{
     try {
         const type = localStorage.getItem("type");
         const response = await axios.post('/api/users/register' , reqObj)
+        if(response.data.exist){
+            swal("Sorry!!!", "User alread exist.", "failer");
+            
+        }
+        else{
+            localStorage.setItem('user' , JSON.stringify(response.data))
         
-        localStorage.setItem('user' , JSON.stringify(response.data))
+            // localStorage.setItem('exist' , JSON.stringify(response.exist))
+            localStorage.setItem('userid' , JSON.stringify(response.data._id))
+            swal("Wow!!!", "You are successfully sign up.", "success");
+            setTimeout(() => {
+                if(type === "admin"){
+                    window.location.href="/admin";
+                }
+                else if (type === "owner"){
+                    window.location.href='/owner'
+                }
+                else if (type === "user"){
+                    window.location.href='/home'
+                }
+            }, 500);    
+        }
         
-        localStorage.setItem('userid' , JSON.stringify(response.data._id))
-        swal("Wow!!!", "You are successfully sign up.", "success");
-        setTimeout(() => {
-            if(type === "admin"){
-                window.location.href="/admin";
-            }
-            else if (type === "owner"){
-                window.location.href='/owner'
-            }
-            else if (type === "user"){
-                window.location.href='/home'
-            }
 
          
-        }, 500);
        
         dispatch({type: 'LOADING' , payload:false})
         

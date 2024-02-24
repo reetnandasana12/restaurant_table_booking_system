@@ -39,6 +39,9 @@ const HotelPhotos = ({ photos }) => {
             <img src={photo} alt={`Photo ${index + 1}`} className="img-fluid" />
           </div>
         ))}
+        {/* <div  className="photo-item" onClick={() => openModal(photos)}>
+            <img src={photos} alt={`Photo`} className="img-fluid" />
+          </div> */}
       </Slider>
       {open && (
         <div className="modal-overlay" onClick={closeModal}>
