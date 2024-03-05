@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const ownerSchema = new mongoose.Schema({
     googleId:String,
-    displayName:String,
+    name:String,
     email:String,
     image:String,
     password:String

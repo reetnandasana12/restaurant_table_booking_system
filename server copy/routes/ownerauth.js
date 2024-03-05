@@ -1,22 +1,10 @@
 const router = require("express").Router();
 const passport = require("passport");
+
 router.get("/login/success", (req, res) => {
 	if (req.user) {
 		// let user = await userdb.findOne({ googleId: profile.id });
                 
-		res.status(200).json({
-			error: false,
-			message: "Successfully Loged In",
-			user: req.user,
-		});
-	} else {
-		res.status(403).json({ error: true, message: "Not Authorized" });
-	}
-});
-
-router.get("/login/success1", (req, res) => {
-	if (userid) {
-                console.log("done................................",userid);
 		res.status(200).json({
 			error: false,
 			message: "Successfully Loged In",
@@ -39,8 +27,8 @@ router.get("/google", passport.authenticate("google", ["profile", "email"]));
 router.get(
 	"/google/callback",
 	passport.authenticate("google", {
-		successRedirect: "http://localhost:3000/CheckPage/",
-		failureRedirect: "http://localhost:3000/login/",
+		successRedirect: "http://localhost:3000/Home",
+		failureRedirect: "http://localhost:3000/login",
 	})
 );
 

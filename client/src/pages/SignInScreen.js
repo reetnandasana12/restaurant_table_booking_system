@@ -11,23 +11,9 @@ import axios from "axios";
 const SignInScreen = () => {
 	const dispatch = useDispatch()
 
-
-	// const history = useNavigate();
-
-	const [email,setEmail] = useState('')
+  const [email,setEmail] = useState('')
 	const [password,setpassword] = useState('')
   const type = localStorage.getItem("type");
-  // console.log(type);
-	const googleAuth = () => {
-		
-		localStorage.setItem("user",email)
-		window.open(
-			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
-			"_self"
-		);
-	};
-
-
 
 	 function submit(e) {
 		e.preventDefault();

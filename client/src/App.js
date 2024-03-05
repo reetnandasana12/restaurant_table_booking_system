@@ -18,37 +18,37 @@ import SelectUser from "./pages/SelectUser";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import BookingForm from "./pages/BookingForm";
 import SortableTable from "./pages/Sortabletable";
+import Navbar from "./pages/Navbar/Navbar";
+import BookingHistory from "./pages/BookingHistory";
+import CheckPage from "./components/CheckPage";
 
 function App() {
   const user1 = localStorage.getItem("userid");
-  const [user,setUser] = useState(user1);
+  const [user,setUser] = useState(null);
 
   const getUser = async () => {
   	try {
-  		// const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
-  		// const { data } = await axios.get(url, { withCredentials: true });
-  		setUser(localStorage.getItem("userid"));
+  		setUser(user1);
   	} catch (err) {
   		console.log(err);
   	}
   };
 
-//   console.log(user);
-
   useEffect(() => {
   	getUser();
   }, []);
 
-  console.log(user);
+  // console.log(user);
   return (
     <div>
+    {/* <Navbar> */}
       <Routes>
         {/* <Route
 					exact
 					path="/auth/login/success"
 					element={user ? <Home user={user} /> : <Navigate to="/login" />}
 				/> */}
-        <Route exact path="/" element=<SignInScreen /> />
+        <Route exact path="/" element=<SelectUser /> />
 
         <Route exact path="/selectUser" element=<SelectUser /> />
 
@@ -67,9 +67,13 @@ function App() {
           exact
           element={user ? <Booking /> : <SelectUser />}
         />
+        <Route
+          path="/CheckPage"
+          exact
+          element=<CheckPage /> 
+        />
 		
         <Route exact path="/bookform/:id" element=<BookingForm /> />
-
 
         <Route path="/ordersuccess" exact element={user ?<OrderSuccessfulScreen /> : <SelectUser />}/>
 
@@ -78,15 +82,8 @@ function App() {
         <Route exact path="/addhotel" element=<AddHotel /> />
 
         <Route exact path="/sort" element=<SortableTable /> />
-
-        {/* <Route
-					exact
-					path="/fooddetail"
-					element=<FoodDetailScreen />
-				/> */}
-				
-
-
+        <Route exact path="/bookinghistory" element=<BookingHistory /> />
+		
         <Route exact path="/admindashboard" element=<AdminDashBoard /> />
         <Route exact path="/edithotel" element=<EditHotel /> />
 
@@ -95,6 +92,7 @@ function App() {
         {/* <Route path="/placeorder/:hotelid" exact element={user ?<PlaceOrderScreen /> : <SelectUser />} /> */}
         <Route exact path="/service" element=<Service /> />
       </Routes>
+      {/* </Navbar> */}
     </div>
   );
 }

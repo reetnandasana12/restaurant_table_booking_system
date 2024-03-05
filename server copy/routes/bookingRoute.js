@@ -5,6 +5,7 @@ const Booking = require("../model/bookingSchema");
 router.use(express.json());
 
 router.post("/bookhotel", async (req, res) => {
+  console.log("here");
     try{
       const newbooking = new Booking(req.body);
       await newbooking.save();

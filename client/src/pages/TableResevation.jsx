@@ -5,24 +5,24 @@ const TableResevation = () => {
     return (
         <>
             <section id="book-table">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="heading">
                         <h2>Book Your Table Now</h2>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-2">
-                    <div class="left-image">
+                <div className="col-md-4 col-md-offset-2">
+                    <div className="left-image">
                         <img src="img/book_left_image.jpg" alt=""></img>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="right-info">
+                <div className="col-md-4">
+                    <div className="right-info">
                         <h4>Reservation</h4>
                         <form id="form-submit" action="" method="get">
-                            <div class="row">
-                                <div class="col-md-6">
+                            <div className="row">
+                                <div className="col-md-6">
                                     <fieldset>
                                         <select required name='day' onchange='this.form.()'>
                                             <option value="">Select day</option>
@@ -36,7 +36,7 @@ const TableResevation = () => {
                                         </select>
                                     </fieldset>
                                 </div>
-                                <div class="col-md-6">
+                                <div className="col-md-6">
                                     <fieldset>
                                         <select required name='hour' onchange='this.form.()'>
                                             <option value="">Select hour</option>
@@ -50,19 +50,19 @@ const TableResevation = () => {
                                         </select>
                                     </fieldset>
                                 </div>
-                                <div class="col-md-6">
+                                <div className="col-md-6">
                                     <fieldset>
-                                        <input name="name" type="name" class="form-control" id="name" placeholder="Full name" required=""></input>
+                                        <input name="name" type="name" className="form-control" id="name" placeholder="Full name" required=""></input>
                                     </fieldset> 
                                 </div>
-                                <div class="col-md-6">
+                                <div className="col-md-6">
                                     <fieldset>
-                                        <input name="phone" type="phone" class="form-control" id="phone" placeholder="Phone number" required=""></input>
+                                        <input name="phone" type="phone" className="form-control" id="phone" placeholder="Phone number" required=""></input>
                                     </fieldset>
                                 </div>
-                                <div class="col-md-6">
+                                <div className="col-md-6">
                                     <fieldset>
-                                        <select required class="person" name='persons' onchange='this.form.()'>
+                                        <select required className="person" name='persons' onchange='this.form.()'>
                                             <option value="">How many persons?</option>
                                             <option value="1-Person">1 Person</option>
                                             <option value="2-Persons">2 Persons</option>
@@ -73,9 +73,9 @@ const TableResevation = () => {
                                         </select>
                                     </fieldset>
                                 </div>
-                                <div class="col-md-6">
+                                <div className="col-md-6">
                                     <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Book Table</button>
+                                        <button type="submit" id="form-submit" className="btn">Book Table</button>
                                     </fieldset>
                                 </div>
                             </div>

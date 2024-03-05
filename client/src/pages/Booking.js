@@ -17,7 +17,7 @@ function Booking(props) {
   }, [])
 
   const hotel = hotels.find(hotel=>hotel._id===hotelid);
-  console.log(hotel);
+  // console.log(hotel);
   
   return (
     <DefaultLayout>
